@@ -6,11 +6,14 @@ MPL3115A2 myPressure;
 // Sets the port on the Arduino UNO for the compressor to be 8 (this value can change)
 int outputPort = 8;
 // Sets a threshold for the barometer to check pressure against
-float pressureMaximum = 100000;
+float pressureMaximum = 96428;
 
 void setup() {
   Wire.begin();
   Serial.begin(9600);
+  pinMode(4, OUTPUT);
+  digitalWrite(4, HIGH);
+  
   pinMode(outputPort, OUTPUT);
 
   myPressure.begin();
